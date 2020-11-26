@@ -127,7 +127,6 @@ def main():
             driver.get(str(driver.find_element_by_class_name("iconFont--arrowLeft").get_attribute("href")))
         except:
             j = 1
-            # print(exp_column_list)
             break
     
     df = pd.DataFrame(exp_company_list, columns = exp_column_list)
