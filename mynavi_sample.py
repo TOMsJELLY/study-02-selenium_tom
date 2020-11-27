@@ -78,8 +78,7 @@ def main():
     
 
     count = 0
-    j = 0
-    while j < 1:
+    while True:
         # 会社単位での全ブロック要素を取得
         company_lists = driver.find_elements_by_class_name("cassetteRecruit__content")
 
@@ -126,10 +125,12 @@ def main():
         try:
             driver.get(str(driver.find_element_by_class_name("iconFont--arrowLeft").get_attribute("href")))
         except:
-            j = 1
             break
-    
-    df = pd.DataFrame(exp_company_list, columns = exp_column_list)
+        
+
+
+    # df = pd.DataFrame(exp_company_list, column = exp_column_list)
+    df = pd.DataFrame({"会社詳細":exp_company_list}, exp_column_list)
     df.to_csv('result.csv')
 
     driver.quit()
